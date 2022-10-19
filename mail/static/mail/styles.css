@@ -1,3 +1,14 @@
 textarea {
     min-height: 400px;
 }
+
+
+.row.border.border-dark.read {
+    margin-bottom: 10px;
+    background-color: red;
+}
+
+.row.border.border-dark.unread {
+    margin-bottom: 10px;
+    background-color: blue;
+}
