@@ -130,29 +130,28 @@ function display_mail(email_id){
     `
 
     //if user is sender = mail is in sent, so dont display the button for archieving
-    //TODO
+    if(!mail.sent_check){
+      //Create a button, and add a event listenr to trigger the function to change the archieve property
+      const button_arch = document.createElement("button")
+      button_arch.className = mail.archived ? "btn btn-warning btn-sm" : "btn btn-primary btn-sm"
+      button_arch.innerHTML = !mail.archived ? "Archive" : "Unarchieve"
+      
+      button_arch.addEventListener("click", function (){
+        change_archieve(email_id, mail.archived)
+      });
 
-    //Create a button, and add a event listenr to trigger the function to change the archieve property
-    const button_arch = document.createElement("button")
-    button_arch.className = mail.archived ? "btn btn-warning btn-sm" : "btn btn-primary btn-sm"
-    button_arch.innerHTML = !mail.archived ? "Archive" : "Unarchieve"
-    
-    button_arch.addEventListener("click", function (){
-      change_archieve(email_id, mail.archived)
-    });
+      //make the button for the replay
+      const button_replay = document.createElement("button")
+      button_replay.className = "btn btn-info btn-sm"
+      button_replay.innerHTML = "Replay"
 
-    //make the button for the replay
-    const button_replay = document.createElement("button")
-    button_replay.className = "btn btn-info btn-sm"
-    button_replay.innerHTML = "Replay"
+      button_replay.addEventListener("click", function () {
+        replay_mail(mail)
+      })
 
-    button_replay.addEventListener("click", function () {
-      replay_mail(mail)
-    })
-
-    //Append ther buttons to the read view
-    document.querySelector("#button_place").append(button_arch, button_replay);
-
+      //Append ther buttons to the read view
+      document.querySelector("#button_place").append(button_arch, button_replay);
+      }
   })
 }
 

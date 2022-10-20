@@ -109,7 +109,12 @@ def email(request, email_id):
 
     # Return email contents
     if request.method == "GET":
-        return JsonResponse(email.serialize())
+        mail = email.serialize()
+        if request.user == email.sender:
+           mail.update({"sent_check":True})
+        else:
+            mail.update({"sent_check":False})
+        return JsonResponse(mail)
 
     # Update whether email is read or should be archived
     elif request.method == "PUT":
