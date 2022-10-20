@@ -5,10 +5,27 @@ textarea {
 
 .row.border.border-dark.read {
     margin-bottom: 10px;
-    background-color: red;
+    background-color: gray;
 }
 
 .row.border.border-dark.unread {
     margin-bottom: 10px;
-    background-color: blue;
+    background-color: white;
+}
+
+
+.btn.btn-info {
+    margin-left: 10px;
+}
+
+#button_place {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+#error-message {
+    font-size: 20px;
+    font-weight: 500;
+    color: red;
 }

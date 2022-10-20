@@ -52,6 +52,7 @@ def compose(request):
     subject = data.get("subject", "")
     body = data.get("body", "")
 
+
     # Create one email for each recipient, plus sender
     users = set()
     users.add(request.user)
